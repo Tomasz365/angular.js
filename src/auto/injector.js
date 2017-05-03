@@ -921,6 +921,17 @@ function createInjector(modulesToLoad, strictDi) {
       instantiate: instantiate,
       get: getService,
       annotate: createInjector.$$annotate,
+      list: function(){
+        return cache;
+      },
+      getList: function(){
+        return Object.keys(cache);
+      },
+      free: function(serviceName){
+        if (cache.hasOwnProperty(serviceName)){
+          delete cache[serviceName]  
+        } 
+      },
       has: function(name) {
         return providerCache.hasOwnProperty(name + providerSuffix) || cache.hasOwnProperty(name);
       }

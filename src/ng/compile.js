@@ -1085,6 +1085,18 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
     return restrict || 'EA';
   }
 
+  this.freeDirective = function freeDirective(name) {
+    if (hasDirectives.hasOwnProperty(name)) {
+      delete hasDirectives[name];
+    }
+  };
+
+  this.getDirectivesList = function getDirectivesList(name) {
+    if(name){
+      return hasDirectives[name];
+    } else return Object.keys(hasDirectives);
+  }
+
   /**
    * @ngdoc method
    * @name $compileProvider#directive
