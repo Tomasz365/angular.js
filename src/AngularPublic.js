@@ -158,8 +158,11 @@ function publishExternalAPI(angular) {
     '$$encodeUriSegment': encodeUriSegment,
     '$$encodeUriQuery': encodeUriQuery,
     '$$lowercase': lowercase,
+    'lowercase': lowercase,
     '$$stringify': stringify,
-    '$$uppercase': uppercase
+    '$$uppercase': uppercase,
+    'uppercase': uppercase,
+    'formatNumber': formatNumber
   });
 
   angularModule = setupModuleLoader(window);
